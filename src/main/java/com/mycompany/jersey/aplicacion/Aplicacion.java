@@ -25,6 +25,10 @@ public class Aplicacion {
         System.out.println("Empiezo el bucle");
         String username = System.getProperty("user.name");
         Mensaje m = new Mensaje(System.getProperty("user.name"));
+        //Enviamos mensaje a la BD mensajesDB y a la coleccion mensajes
+        //Es decir, para encontrarlo haremos en mongodb:
+        //use mensajesDB
+        //db.mensajes.find({usuario:"tuUsuario"})
         mongo.SendMessage(m);
         System.out.println(username);
         int z=1;
