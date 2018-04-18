@@ -39,7 +39,7 @@ public class Mensaje {
         this.tipo_usuario = tipo_usuario;
         this.hora = new Date(System.currentTimeMillis());  //Se inicializa para coger la hora del sistema.
         this.nombre_funcion = nombre_funcion;
-        this.id_funcion = this.nombre_funcion + "_" + this.hora.toString(); 
+        this.id_funcion = this.nombre_funcion + "_" + System.currentTimeMillis(); 
         this.autor_funcion = this.nombre_funcion + "_NULL"; //Estas funciones no tienen argumentos.
         this.tipo_retorno = "String";
     }
@@ -104,6 +104,6 @@ public class Mensaje {
 
     @Override
     public String toString() {
-        return " -- [ " + this.hora.toString() + " ] - USER: '" + this.usuario + "' => " + this.tipo_usuario + " - ID: " + this.id_funcion + " - AUTOR: " + this.autor_funcion + " - Retorno: " + this.tipo_retorno + "\n";
+        return " -- [ " + this.hora.toString() + " ] - USER: '" + this.usuario + "' => " + this.tipo_usuario + " - ID: " + this.id_funcion + " - AUTOR: " + this.autor_funcion + " - Retorno: " + this.tipo_retorno;
     }
 }

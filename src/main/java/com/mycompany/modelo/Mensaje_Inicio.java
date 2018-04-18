@@ -20,7 +20,7 @@ public class Mensaje_Inicio extends Mensaje{
 
     public Mensaje_Inicio(String usuario, String tipo_usario, String nombre_funcion) {
         super(usuario, tipo_usario,nombre_funcion);    
-        this.texto_inicio = "** Inicio de la funcion **";
+        this.texto_inicio = "** Inicio de la funcion... **";
     }
 
     public String getTexto_inicio() {
@@ -30,7 +30,10 @@ public class Mensaje_Inicio extends Mensaje{
     public void setTexto_inicio(String texto_inicio) {
         this.texto_inicio = texto_inicio;
     }
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return " - | " + this.texto_inicio + super.toString() ;
+    }
+
 }

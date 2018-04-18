@@ -9,6 +9,30 @@ package com.mycompany.modelo;
  *
  * @author Sagrek28
  */
-public class Mensaje_Correcto {
+public class Mensaje_Correcto extends Mensaje{
     
+
+	//Atributos extra.
+    
+    private String texto_correcto;
+
+    public Mensaje_Correcto(String usuario, String tipo_usario, String nombre_funcion) {
+        super(usuario, tipo_usario,nombre_funcion);
+        this.texto_correcto = ":D La Ejecución de la Funcion Termino Correctamente";
+    }
+
+    public String getTexto_correcto() {
+        return texto_correcto;
+    }
+
+    public void setTexto_correcto(String texto_correcto) {
+        this.texto_correcto = texto_correcto;
+    }
+    
+    
+     @Override
+    public String toString() {
+        return  " - | " + this.texto_correcto + super.toString() ;
+    }
+
 }

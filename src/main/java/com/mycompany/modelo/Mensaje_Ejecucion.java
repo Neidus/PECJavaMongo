@@ -18,9 +18,9 @@ public class Mensaje_Ejecucion extends Mensaje{
     private String texto_ejecucion;
     
     
-    public Mensaje_Ejecucion(String usuario, String tipo_usario,String nombre_funcion,String texto_ejecucion) {
+    public Mensaje_Ejecucion(String usuario, String tipo_usario,String nombre_funcion) {
         super(usuario, tipo_usario,nombre_funcion);
-        this.texto_ejecucion = texto_ejecucion;
+        this.texto_ejecucion = "++ Ejecutandose... ++";
     }
 
     //Get y set
@@ -33,4 +33,10 @@ public class Mensaje_Ejecucion extends Mensaje{
         this.texto_ejecucion = texto_ejecucion;
     }
    
+
+    @Override
+    public String toString() {
+        return   " - | " + this.texto_ejecucion + super.toString() ;
+    }
+
 }

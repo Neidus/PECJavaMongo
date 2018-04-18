@@ -18,9 +18,9 @@ public class Mensaje_Fin extends Mensaje{
     
     private String texto_fin;
 
-    public Mensaje_Fin(String usuario, String tipo_usario, String nombre_funcion,String texto_fin) {
+    public Mensaje_Fin(String usuario, String tipo_usario, String nombre_funcion) {
         super(usuario, tipo_usario,nombre_funcion);
-        this.texto_fin = texto_fin;
+        this.texto_fin = "^^ Fin de la funcion ^^";
     }
 
     public String getTexto_fin() {
@@ -32,5 +32,10 @@ public class Mensaje_Fin extends Mensaje{
     }
     
     
+     @Override
+    public String toString() {
+        return  " - | " + this.texto_fin + super.toString() ;
+    }
+
     
 }

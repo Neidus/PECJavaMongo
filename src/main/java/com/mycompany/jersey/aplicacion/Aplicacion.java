@@ -6,6 +6,11 @@
 package com.mycompany.jersey.aplicacion;
 
 import com.mycompany.modelo.Mensaje;
+import com.mycompany.modelo.Mensaje_Correcto;
+import com.mycompany.modelo.Mensaje_Ejecucion;
+import com.mycompany.modelo.Mensaje_Error;
+import com.mycompany.modelo.Mensaje_Inicio;
+import com.mycompany.modelo.Mensaje_Fin;
 import com.mycompany.mongo.MongoDBSingleton;
 
 /**
@@ -32,7 +37,7 @@ public class Aplicacion {
       //  System.out.println(username);
         int z=1;
         int aleatorio=0;
-        for (int i=0; i<50; i++){
+        for (int i=0; i<10000; i++){
             aleatorio = (int) (Math.random() * 4) + 1;
             
             switch (aleatorio) {
@@ -51,44 +56,201 @@ public class Aplicacion {
         System.out.println("Acabo el bucle");
     }
     
-    public static void funcion1() {
-        
-    String username = System.getProperty("user.name");
-     
-    Mensaje m = new Mensaje(username,"ADMINISTRADOR","Funcion_1"); //Creamos el mensaje.
 
-    System.out.println(m.toString());
-    
+    public static void funcion1() {
+     
+        String mensaje_completo = "";
+
+        String username = System.getProperty("user.name");
+         
+        Mensaje_Inicio m_i = new Mensaje_Inicio(username,"ADMINISTRADOR","Funcion_1"); //Creamos el mensaje de inicio.
+
+        System.out.println(m_i.toString());
+
+
+         float calculo = 0;
+
+         int aleatorio = (int) (Math.random() * 100);  //Aletorio del 1 al 100
+
+         try
+         {
+            calculo = 10/aleatorio;  //Excepcion division por cero.
+            
+            if(aleatorio == 78) 
+            {
+                Mensaje m_nulo = null;
+
+                m_nulo.toString(); //Excepcion accedemos a un objeto vacío.
+            }
+            
+            
+            Mensaje_Ejecucion m_e = new Mensaje_Ejecucion(username,"ADMINISTRADOR","Funcion_1");
+
+            System.out.println(m_e.toString());
+
+            Mensaje_Fin m_f = new Mensaje_Fin(username,"ADMINISTRADOR","Funcion_1");
+
+            System.out.println(m_f.toString());
+
+            Mensaje_Correcto m_c = new Mensaje_Correcto(username,"ADMINISTRADOR","Funcion_1");
+
+            System.out.println(m_c.toString());
+
+         }
+         catch(Exception e)
+         {
+              Mensaje_Error m_error = new Mensaje_Error(username,"ADMINISTRADOR","Funcion_1",e.toString());
+
+            System.out.println(m_error.toString());  
+         }
+         
+     
     }
+
     public static void funcion2() {
         
-    String username = System.getProperty("user.name");
-     
-    Mensaje m = new Mensaje(username,"USUARIO","Funcion_2"); //Creamos el mensaje.
+        String mensaje_completo = "";
 
-    System.out.println(m.toString());
+        String username = System.getProperty("user.name");
+         
+        Mensaje_Inicio m_i = new Mensaje_Inicio(username,"USUARIO","Funcion_2"); //Creamos el mensaje de inicio.
 
+        System.out.println(m_i.toString());
+
+
+         float calculo = 0;
+
+         int aleatorio = (int) (Math.random() * 100);  //Aletorio del 1 al 100
+
+         try
+         {
+            calculo = 10/aleatorio;  //Excepcion division por cero.
+            
+            if(aleatorio == 78) 
+            {
+                Mensaje m_nulo = null;
+
+                m_nulo.toString(); //Excepcion accedemos a un objeto vacío.
+            }
+            
+            
+            Mensaje_Ejecucion m_e = new Mensaje_Ejecucion(username,"USUARIO","Funcion_2");
+
+            System.out.println(m_e.toString());
+
+            Mensaje_Fin m_f = new Mensaje_Fin(username,"USUARIO","Funcion_2");
+
+            System.out.println(m_f.toString());
+
+            Mensaje_Correcto m_c = new Mensaje_Correcto(username,"USUARIO","Funcion_2");
+
+            System.out.println(m_c.toString());
+
+         }
+         catch(Exception e)
+         {
+              Mensaje_Error m_error = new Mensaje_Error(username,"USUARIO","Funcion_2",e.toString());
+
+            System.out.println(m_error.toString());  
+         }
+    
     }
     
     public static void funcion3() {
 
-    String username = System.getProperty("user.name");
-     
-    Mensaje m = new Mensaje(username,"USUARIO_PRIVILEGIOS","Funcion_3"); //Creamos el mensaje.
+        String mensaje_completo = "";
 
-    System.out.println(m.toString());
+        String username = System.getProperty("user.name");
+         
+        Mensaje_Inicio m_i = new Mensaje_Inicio(username,"USUARIO_PRIVILEGIOS","Funcion_3"); //Creamos el mensaje de inicio.
+
+        System.out.println(m_i.toString());
+
+
+         float calculo = 0;
+
+         int aleatorio = (int) (Math.random() * 100);  //Aletorio del 1 al 100
+
+         try
+         {
+            calculo = 10/aleatorio;  //Excepcion division por cero.
+            
+            if(aleatorio == 78) 
+            {
+                Mensaje m_nulo = null;
+
+                m_nulo.toString(); //Excepcion accedemos a un objeto vacío.
+            }
+            
+            
+            Mensaje_Ejecucion m_e = new Mensaje_Ejecucion(username,"USUARIO_PRIVILEGIOS","Funcion_3");
+
+            System.out.println(m_e.toString());
+
+            Mensaje_Fin m_f = new Mensaje_Fin(username,"USUARIO_PRIVILEGIOS","Funcion_3");
+
+            System.out.println(m_f.toString());
+
+            Mensaje_Correcto m_c = new Mensaje_Correcto(username,"USUARIO_PRIVILEGIOS","Funcion_3");
+
+            System.out.println(m_c.toString());
+
+         }
+         catch(Exception e)
+         {
+              Mensaje_Error m_error = new Mensaje_Error(username,"USUARIO_PRIVILEGIOS","Funcion_3",e.toString());
+
+            System.out.println(m_error.toString());  
+         }
         
     }
     public static void funcion4() {
 
-    String username = System.getProperty("user.name");
-     
-    Mensaje m = new Mensaje(username,"JEFE_PROYECTO","Funcion_4"); //Creamos el mensaje.
+        String mensaje_completo = "";
 
-    System.out.println(m.toString());
+        String username = System.getProperty("user.name");
+         
+        Mensaje_Inicio m_i = new Mensaje_Inicio(username,"JEFE_PROYECTO","Funcion_4"); //Creamos el mensaje de inicio.
 
-    }
-    
-    
-   
+        System.out.println(m_i.toString());
+
+
+         float calculo = 0;
+
+         int aleatorio = (int) (Math.random() * 100);  //Aletorio del 1 al 100
+
+         try
+         {
+            calculo = 10/aleatorio;  //Excepcion division por cero.
+            
+            if(aleatorio == 78) 
+            {
+                Mensaje m_nulo = null;
+
+                m_nulo.toString(); //Excepcion accedemos a un objeto vacío.
+            }
+            
+            
+            Mensaje_Ejecucion m_e = new Mensaje_Ejecucion(username,"JEFE_PROYECTO","Funcion_4");
+
+            System.out.println(m_e.toString());
+
+            Mensaje_Fin m_f = new Mensaje_Fin(username,"JEFE_PROYECTO","Funcion_4");
+
+            System.out.println(m_f.toString());
+
+            Mensaje_Correcto m_c = new Mensaje_Correcto(username,"JEFE_PROYECTO","Funcion_4");
+
+            System.out.println(m_c.toString());
+
+         }
+         catch(Exception e)
+         {
+              Mensaje_Error m_error = new Mensaje_Error(username,"JEFE_PROYECTO","Funcion_4",e.toString());
+
+            System.out.println(m_error.toString());  
+         }
+
+        }
+
 }
