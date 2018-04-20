@@ -5,16 +5,14 @@
  */
 package com.mycompany.jersey.client;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+/**
+ *
+ * @author wolfm
+ */
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
-public class Cliente {
+public class conexion_cliente {
     
 
 	Client client = Client.create();
@@ -22,7 +20,7 @@ public class Cliente {
 	String getUrl3 = "http://localhost:8080/JAX-RS-JSON/rest/mensaje/data/get3";
 	String postUrl = "http://localhost:8080/JAX-RS-JSON/rest/mensaje/data/post";
 	public static void main(String[] args) {
-		Cliente cliente = new Cliente();
+		conexion_cliente cliente = new conexion_cliente();
 		
         //Se lanza una petici�n GET b�sica
 		cliente.getRequest();
