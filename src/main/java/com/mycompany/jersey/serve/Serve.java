@@ -5,10 +5,14 @@
  */
 package com.mycompany.jersey.serve;
 
-/**
- *
- * @author wolfm
- */import java.util.ArrayList;
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -22,7 +26,7 @@ import javax.ws.rs.core.Response;
 import com.mycompany.modelo.*;
 
 @Path("/mensaje/data")
-public class conexion_serve {   
+public class Serve {   
     /*
 	protected Estudiante creaEstudiante(){
 		Estudiante manolito = new Estudiante();
