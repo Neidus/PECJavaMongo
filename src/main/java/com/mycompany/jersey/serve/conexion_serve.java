@@ -32,7 +32,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 public class conexion_serve {   
 
    protected Mensaje CrearMensaje(){
-      Mensaje mensaje01=new Mensaje(null,null,null,null);
+      Mensaje mensaje01=new Mensaje(null,null,null);
       mensaje01.setUsuario("usuario01");
       mensaje01.setTipo_usuario("Becario");
       mensaje01.setId_funcion("111111111");

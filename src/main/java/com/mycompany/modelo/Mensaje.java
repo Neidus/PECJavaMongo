@@ -39,7 +39,7 @@ public class Mensaje {
 
     //Contructor de la clase.
 
-    public Mensaje(String usuario, String tipo_usuario,String nombre_funcion, String mensaje) {
+    public Mensaje(String usuario, String tipo_usuario,String nombre_funcion) {
         this.usuario = usuario;
         this.tipo_usuario = tipo_usuario;
         this.hora = new Date(System.currentTimeMillis());  //Se inicializa para coger la hora del sistema.
@@ -47,7 +47,7 @@ public class Mensaje {
         this.id_funcion = this.nombre_funcion + "_" + System.currentTimeMillis(); 
         this.autor_funcion = this.nombre_funcion + "_NULL"; //Estas funciones no tienen argumentos.
         this.tipo_retorno = "String";
-        this.mensaje=mensaje;
+        this.mensaje= "Ejecución de la funcion " + this.id_funcion + " a la hora "+this.hora + " por el usuario " + this.usuario + " de tipo "+this.tipo_usuario+ " manda la funcion " + this.nombre_funcion;
     }
     
     public Mensaje() {

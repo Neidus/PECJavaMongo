@@ -20,8 +20,8 @@ public class Mensaje_Fin extends Mensaje{
     
     private String texto_fin;
 
-    public Mensaje_Fin(String usuario, String tipo_usario, String nombre_funcion, String mensaje) {
-        super(usuario, tipo_usario,nombre_funcion, mensaje);
+    public Mensaje_Fin(String usuario, String tipo_usario, String nombre_funcion) {
+        super(usuario, tipo_usario,nombre_funcion);
         this.texto_fin = "^^ Fin de la funcion ^^";
     }
 
