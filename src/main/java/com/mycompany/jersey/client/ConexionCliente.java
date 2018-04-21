@@ -26,7 +26,6 @@ public class ConexionCliente {
 	String postUrl = "http://localhost:8080/mavenproject1/rest/mensaje/data/trabajar";
         
 	public static void main(String[] args) {
-		ConexionCliente cliente = new ConexionCliente();
 		
         //Se lanza una petici�n GET b�sica
 		//cliente.getRequest();
