@@ -20,8 +20,8 @@ public class Mensaje_Inicio extends Mensaje{
     
     private String texto_inicio;
 
-    public Mensaje_Inicio(String usuario, String tipo_usario, String nombre_funcion) {
-        super(usuario, tipo_usario,nombre_funcion);    
+    public Mensaje_Inicio(String usuario, String tipo_usario, String nombre_funcion, String mensaje) {
+        super(usuario, tipo_usario,nombre_funcion, mensaje);    
         this.texto_inicio = "** Inicio de la funcion... **";
     }
 

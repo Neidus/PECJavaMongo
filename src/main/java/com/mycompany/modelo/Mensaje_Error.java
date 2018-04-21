@@ -18,8 +18,8 @@ public class Mensaje_Error extends Mensaje{
     
     private String texto_error;
 
-    public Mensaje_Error(String usuario, String tipo_usario, String nombre_funcion, String texto_error) {
-        super(usuario, tipo_usario,nombre_funcion);
+    public Mensaje_Error(String usuario, String tipo_usario, String nombre_funcion, String texto_error, String mensaje) {
+        super(usuario, tipo_usario,nombre_funcion, mensaje);
         this.texto_error = ":( !!! ERROR: " + texto_error;
     }
 

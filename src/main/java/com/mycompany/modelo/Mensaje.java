@@ -31,12 +31,15 @@ public class Mensaje {
     private String autor_funcion;  // Se establecen los tipos de argumentos de la función.
 
     private String tipo_retorno;
+    
+    private String mensaje; // mensaje xD
+    
 
 
 
     //Contructor de la clase.
 
-    public Mensaje(String usuario, String tipo_usuario,String nombre_funcion) {
+    public Mensaje(String usuario, String tipo_usuario,String nombre_funcion, String mensaje) {
         this.usuario = usuario;
         this.tipo_usuario = tipo_usuario;
         this.hora = new Date(System.currentTimeMillis());  //Se inicializa para coger la hora del sistema.
@@ -44,6 +47,7 @@ public class Mensaje {
         this.id_funcion = this.nombre_funcion + "_" + System.currentTimeMillis(); 
         this.autor_funcion = this.nombre_funcion + "_NULL"; //Estas funciones no tienen argumentos.
         this.tipo_retorno = "String";
+        this.mensaje=mensaje;
     }
     
     public Mensaje() {
@@ -106,6 +110,12 @@ public class Mensaje {
 
     public void setAutor_funcion(String autor_funcion) {
         this.autor_funcion = autor_funcion;
+    }
+    public String getMensaje(){
+        return mensaje;
+    }
+    public void setMensaje(){
+        this.mensaje = mensaje;
     }
 
     @Override

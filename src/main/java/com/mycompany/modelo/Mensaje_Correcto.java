@@ -19,8 +19,8 @@ public class Mensaje_Correcto extends Mensaje{
     
     private String texto_correcto;
 
-    public Mensaje_Correcto(String usuario, String tipo_usario, String nombre_funcion) {
-        super(usuario, tipo_usario,nombre_funcion);
+    public Mensaje_Correcto(String usuario, String tipo_usario, String nombre_funcion, String mensaje) {
+        super(usuario, tipo_usario,nombre_funcion,mensaje);
         this.texto_correcto = ":D La Ejecución de la Funcion Termino Correctamente";
     }
 
