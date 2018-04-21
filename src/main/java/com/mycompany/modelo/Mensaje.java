@@ -6,11 +6,13 @@
 package com.mycompany.modelo;
 
 import java.util.Date;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 /**
  *
  * @author Varela
  */
+@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
 public class Mensaje {
     
 
@@ -42,6 +44,10 @@ public class Mensaje {
         this.id_funcion = this.nombre_funcion + "_" + System.currentTimeMillis(); 
         this.autor_funcion = this.nombre_funcion + "_NULL"; //Estas funciones no tienen argumentos.
         this.tipo_retorno = "String";
+    }
+    
+    public Mensaje() {
+        
     }
 
     //Get y  sets ...
@@ -104,6 +110,7 @@ public class Mensaje {
 
     @Override
     public String toString() {
-        return " -- [ " + this.hora.toString() + " ] - USER: '" + this.usuario + "' => " + this.tipo_usuario + " - ID: " + this.id_funcion + " - AUTOR: " + this.autor_funcion + " - Retorno: " + this.tipo_retorno;
+        //return " -- [ " + this.hora.toString() + " ] - USER: '" + this.usuario + "' => " + this.tipo_usuario + " - ID: " + this.id_funcion + " - AUTOR: " + this.autor_funcion + " - Retorno: " + this.tipo_retorno;
+        return "Este toString ahora mismo no funciona, con nulos da problemas, arreglar";
     }
 }

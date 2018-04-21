@@ -20,33 +20,17 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.mycompany.modelo.*;
+import com.mycompany.mongo.MongoDBSingleton;
+import com.sun.jersey.server.impl.container.servlet.Include;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.bson.Document;
+import org.codehaus.jackson.map.ObjectMapper;
 
 @Path("/mensaje/data")
 public class conexion_serve {   
-    /*
-	protected Estudiante creaEstudiante(){
-		Estudiante manolito = new Estudiante();
-		
-		//Rellenamos de datos:
-		manolito.setNombre("Manuel");
-		manolito.setApellido("G�mez");
-		manolito.setTitulacion("Master en Ingenier�a del Software para la Web");
-		manolito.setNumMatricula(1235461);
-		
-		List<Libro> l = manolito.getLibros();
-		Libro libro1 = new Libro();
-		libro1.setAutor("Tannembaun");
-		libro1.setTitulo("Todo lo que quiso saber de las redes");
-		libro1.setAnyo(1992);
-		Libro libro2 = new Libro();
-		libro2.setAutor("Michels");
-		libro2.setTitulo("Programaci�n y otros pasatiempos");
-		libro2.setAnyo(1995);
-		l.add(libro1);
-		l.add(libro2);
-		return manolito;
-	}
-	*/
+
    protected Mensaje CrearMensaje(){
       Mensaje mensaje01=new Mensaje(null,null,null);
       mensaje01.setUsuario("usuario01");
@@ -69,27 +53,44 @@ public class conexion_serve {
 		
 		return mens;
 	}
+        
+    
 
-	@GET
-	@Path("/get3")
-	@Produces(MediaType.APPLICATION_JSON)
-	public List<Mensaje> getEstudiantes3(){
-		//Creamos una lista de estudiantes
-		List<Mensaje> lista = new ArrayList<Mensaje>();
-		lista.add(CrearMensaje());
-		lista.add(CrearMensaje());
-		lista.add(CrearMensaje());
-
-		return lista;
-	}	
 	
 	
 	@POST
-	@Path("/post")
+	@Path("/trabajar")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response postMensaje(Mensaje alguien){
-		String resultado = "El registro enviado es: "+ alguien;
-		return Response.status(201).entity(resultado).build();
+            
+             /*
+                    Aqui el servidor recibira un mensaje desde el cliente.
+                    
+            El servidor insertara en mongo el mensaje tras volverlo a convertir en json.
+                
+             */
+             MongoDBSingleton mongo = MongoDBSingleton.getInstance();
+             mongo.getTestdb();
+             
+            
+            ObjectMapper mapper = new ObjectMapper();
+            String jsonString="";
+            Document doc=null;
+            try {
+                jsonString = mapper.writeValueAsString(alguien);
+                
+                doc = Document.parse(jsonString);
+                mongo.InsertMessage(doc);
+
+            } catch (IOException ex) {
+                Logger.getLogger(conexion_serve.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+            return Response.status(201).entity(jsonString).build();
+                
+               
+
 	}
 
 }

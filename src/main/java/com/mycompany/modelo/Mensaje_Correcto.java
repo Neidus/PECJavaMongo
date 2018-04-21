@@ -5,10 +5,13 @@
  */
 package com.mycompany.modelo;
 
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+
 /**
  *
  * @author Sagrek28
  */
+@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
 public class Mensaje_Correcto extends Mensaje{
     
 

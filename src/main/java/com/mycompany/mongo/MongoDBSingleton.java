@@ -42,6 +42,7 @@ public class MongoDBSingleton {
  public static MongoDBSingleton getInstance(){
   if(mDbSingleton == null){
     mDbSingleton = new MongoDBSingleton();
+    
   }
   return mDbSingleton;
  }
@@ -69,19 +70,15 @@ public class MongoDBSingleton {
   return db;
  }
  
- public void SendMessage(Mensaje m){
+ public void InsertMessage(Document doc){
      MongoCollection<Document> collection = db.getCollection("mensajes");
    
-     ObjectMapper mapper = new ObjectMapper();
+    
      
-     try {
-         String jsonString = mapper.writeValueAsString(m);
-         System.out.println("Json: " + jsonString);
-         Document doc = Document.parse(jsonString);
-         collection.insertOne(doc);
-     } catch (IOException ex) {
-         Logger.getLogger(MongoDBSingleton.class.getName()).log(Level.SEVERE, null, ex);
-     }
+     //String jsonString = mapper.writeValueAsString(m);
+     //System.out.println("Json: " + jsonString);
+     //doc = Document.parse(jsonString);
+     collection.insertOne(doc);
      
      
 

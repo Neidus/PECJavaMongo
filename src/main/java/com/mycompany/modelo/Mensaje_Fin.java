@@ -6,11 +6,13 @@
 package com.mycompany.modelo;
 
 import java.sql.Time;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 /**
  *
  * @author Sagrek28
  */
+@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
 public class Mensaje_Fin extends Mensaje{
     
       

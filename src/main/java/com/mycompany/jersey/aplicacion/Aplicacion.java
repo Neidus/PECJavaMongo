@@ -5,6 +5,7 @@
  */
 package com.mycompany.jersey.aplicacion;
 
+import com.mycompany.jersey.client.ConexionCliente;
 import com.mycompany.modelo.Mensaje;
 import com.mycompany.modelo.Mensaje_Correcto;
 import com.mycompany.modelo.Mensaje_Ejecucion;
@@ -12,6 +13,8 @@ import com.mycompany.modelo.Mensaje_Error;
 import com.mycompany.modelo.Mensaje_Inicio;
 import com.mycompany.modelo.Mensaje_Fin;
 import com.mycompany.mongo.MongoDBSingleton;
+import com.sun.jersey.api.client.Client;
+import java.util.HashSet;
 
 /**
  *
@@ -19,35 +22,26 @@ import com.mycompany.mongo.MongoDBSingleton;
  */
 public class Aplicacion {
 
+    ConexionCliente cliente = new ConexionCliente();
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        
-        MongoDBSingleton mongo = MongoDBSingleton.getInstance();
-        mongo.getTestdb();
+
+    
+    public void simularTrabajo() {
         System.out.println("Empiezo el bucle");
-     
-        //Enviamos mensaje a la BD mensajesDB y a la coleccion mensajes
-        //Es decir, para encontrarlo haremos en mongodb:
-        //use mensajesDB
-        //db.mensajes.find({usuario:"tuUsuario"})
-        //mongo.SendMessage(m);
-      //  System.out.println(username);
-        int z=1;
         int aleatorio=0;
-        for (int i=0; i<10000; i++){
+        for (int i=0; i<20; i++){
             aleatorio = (int) (Math.random() * 4) + 1;
             
             switch (aleatorio) {
-                case 1: funcion1();  //Si es 1 Se ejecuta la función 1.  
+                case 1: funcionMia();  //Si es 1 Se ejecuta la función 1.  
                         break;
-                case 2: funcion2(); 
+                case 2: //funcion2(); 
                         break;
-                case 3: funcion3(); 
+                case 3: //funcion3(); 
                         break;
-                case 4: funcion4(); 
+                case 4: //funcion4(); 
                         break;
                 default: System.out.println("ups no deberia estar aqui");
             }
@@ -55,9 +49,16 @@ public class Aplicacion {
         
         System.out.println("Acabo el bucle");
     }
-    
 
-    public static void funcion1() {
+    public void funcionMia() {
+        StackTraceElement[] ste = Thread.currentThread().getStackTrace();
+        Mensaje m = new Mensaje(System.getProperty("user.name"),"Usuario Final", ste[ste.length - 1].getMethodName());
+        m.setUsuario(System.getProperty("user.name"));
+        cliente.postRequest(m);
+        
+    }
+    
+    public void funcion1() {
      
         String mensaje_completo = "";
 
@@ -107,7 +108,7 @@ public class Aplicacion {
      
     }
 
-    public static void funcion2() {
+    public void funcion2() {
         
         String mensaje_completo = "";
 
@@ -156,7 +157,7 @@ public class Aplicacion {
     
     }
     
-    public static void funcion3() {
+    public void funcion3() {
 
         String mensaje_completo = "";
 
@@ -204,7 +205,7 @@ public class Aplicacion {
          }
         
     }
-    public static void funcion4() {
+    public void funcion4() {
 
         String mensaje_completo = "";
 
