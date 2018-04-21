@@ -47,7 +47,7 @@ public class Mensaje {
         this.id_funcion = this.nombre_funcion + "_" + System.currentTimeMillis(); 
         this.autor_funcion = this.nombre_funcion + "_NULL"; //Estas funciones no tienen argumentos.
         this.tipo_retorno = "String";
-        this.mensaje= "Ejecución de la funcion " + this.id_funcion + " a la hora "+this.hora + " por el usuario " + this.usuario + " de tipo "+this.tipo_usuario+ " manda la funcion " + this.nombre_funcion;
+        this.mensaje= "Ejecución de la funcion " + this.id_funcion + " a la hora "+this.hora + " por el usuario " + this.usuario + " de tipo "+this.tipo_usuario+ " nombre de la funcion " + this.nombre_funcion+ " autor de la funcion: "+this.autor_funcion+" y de tipo de retorno: "+this.tipo_retorno;
     }
     
     public Mensaje() {
