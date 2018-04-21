@@ -33,7 +33,7 @@ public class Aplicacion {
         int aleatorio=0;
         for (int i=0; i<20; i++){
             aleatorio = (int) (Math.random() * 4) + 1;
-            
+            System.out.println("Aleatorio: "+ aleatorio);
             switch (aleatorio) {
                 case 1: funcionMia();  //Si es 1 Se ejecuta la función 1.  
                         break;
@@ -52,8 +52,7 @@ public class Aplicacion {
 
     public void funcionMia() {
         StackTraceElement[] ste = Thread.currentThread().getStackTrace();
-        Mensaje m = new Mensaje(System.getProperty("user.name"),"Usuario Final", ste[ste.length - 1].getMethodName());
-        m.setUsuario(System.getProperty("user.name"));
+        Mensaje m = new Mensaje(System.getProperty("user.name"),"Usuario Final", ste[1].getMethodName());
         cliente.postRequest(m);
         
     }

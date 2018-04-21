@@ -67,7 +67,6 @@ public class ConexionCliente {
 	 */
 	public void postRequest(Mensaje m){
             
-            
             try {
                 /*
                 Esta funcion seria el nuevo sendMessage()
@@ -89,7 +88,6 @@ public class ConexionCliente {
                 //Se env�an datos
                 
                 ClientResponse respuesta = webResource.accept("application/json").type("application/json").post(ClientResponse.class,jsonString);
-                
                 //Si la respuesta es un no aceptado (cualquier cosa distinta de 201)
                 if(respuesta.getStatus()!=201){
                     throw new RuntimeException("Error en HTTP: "+ respuesta.getStatus());
