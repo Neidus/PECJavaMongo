@@ -52,6 +52,9 @@ public class Aplicacion {
 
     public void funcionMia() {
         StackTraceElement[] ste = Thread.currentThread().getStackTrace();
+        
+        
+        
         Mensaje m = new Mensaje(System.getProperty("user.name"),"Usuario Final", ste[1].getMethodName());
         m.setMensajeInicio();
         cliente.postRequest(m);
@@ -64,9 +67,18 @@ public class Aplicacion {
         m.setMensajeWarning("Este es el mensaje del warning");
         cliente.postRequest(m);
         
-        m = new Mensaje(System.getProperty("user.name"),"Usuario Final", ste[1].getMethodName());
-        m.setMensajeError("1", "texto del error");
-        cliente.postRequest(m);
+        
+        
+        
+       
+        
+        try {
+            int errorProvocado= 1/0;
+        } catch (Exception e) {
+            m = new Mensaje(System.getProperty("user.name"),"Usuario Final", ste[1].getMethodName());
+            m.setMensajeError(Integer.toString(e.getStackTrace()[0].getLineNumber()), e.toString());
+            cliente.postRequest(m); 
+        }
         
         
     }
