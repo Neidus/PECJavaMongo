@@ -53,7 +53,21 @@ public class Aplicacion {
     public void funcionMia() {
         StackTraceElement[] ste = Thread.currentThread().getStackTrace();
         Mensaje m = new Mensaje(System.getProperty("user.name"),"Usuario Final", ste[1].getMethodName());
+        m.setMensajeInicio();
         cliente.postRequest(m);
+        
+        m = new Mensaje(System.getProperty("user.name"),"Usuario Final", ste[1].getMethodName());
+        m.setMensajeFin("12");
+        cliente.postRequest(m);
+        
+        m = new Mensaje(System.getProperty("user.name"),"Usuario Final", ste[1].getMethodName());
+        m.setMensajeWarning("Este es el mensaje del warning");
+        cliente.postRequest(m);
+        
+        m = new Mensaje(System.getProperty("user.name"),"Usuario Final", ste[1].getMethodName());
+        m.setMensajeError("1", "texto del error");
+        cliente.postRequest(m);
+        
         
     }
     
@@ -88,9 +102,9 @@ public class Aplicacion {
 
             System.out.println(m_e.toString());
 
-            Mensaje_Fin m_f = new Mensaje_Fin(username,"ADMINISTRADOR","Funcion_1");
+            //Mensaje_Fin m_f = new Mensaje_Fin(username,"ADMINISTRADOR","Funcion_1");
 
-            System.out.println(m_f.toString());
+            //System.out.println(m_f.toString());
 
             Mensaje_Correcto m_c = new Mensaje_Correcto(username,"ADMINISTRADOR","Funcion_1");
 
@@ -99,9 +113,9 @@ public class Aplicacion {
          }
          catch(Exception e)
          {
-              Mensaje_Error m_error = new Mensaje_Error(username,"ADMINISTRADOR","Funcion_1",e.toString());
+              //Mensaje_Error m_error = new Mensaje_Error(username,"ADMINISTRADOR","Funcion_1",e.toString());
 
-            System.out.println(m_error.toString());  
+           // System.out.println(m_error.toString());  
          }
          
      
@@ -138,9 +152,9 @@ public class Aplicacion {
 
             System.out.println(m_e.toString());
 
-            Mensaje_Fin m_f = new Mensaje_Fin(username,"USUARIO","Funcion_2");
+            //Mensaje_Fin m_f = new Mensaje_Fin(username,"USUARIO","Funcion_2");
 
-            System.out.println(m_f.toString());
+            //System.out.println(m_f.toString());
 
             Mensaje_Correcto m_c = new Mensaje_Correcto(username,"USUARIO","Funcion_2");
 
@@ -149,9 +163,9 @@ public class Aplicacion {
          }
          catch(Exception e)
          {
-              Mensaje_Error m_error = new Mensaje_Error(username,"USUARIO","Funcion_2",e.toString());
+              //Mensaje_Error m_error = new Mensaje_Error(username,"USUARIO","Funcion_2",e.toString());
 
-            System.out.println(m_error.toString());  
+            //System.out.println(m_error.toString());  
          }
     
     }
@@ -187,9 +201,9 @@ public class Aplicacion {
 
             System.out.println(m_e.toString());
 
-            Mensaje_Fin m_f = new Mensaje_Fin(username,"USUARIO_PRIVILEGIOS","Funcion_3");
+            //Mensaje_Fin m_f = new Mensaje_Fin(username,"USUARIO_PRIVILEGIOS","Funcion_3");
 
-            System.out.println(m_f.toString());
+            //System.out.println(m_f.toString());
 
             Mensaje_Correcto m_c = new Mensaje_Correcto(username,"USUARIO_PRIVILEGIOS","Funcion_3");
 
@@ -198,9 +212,9 @@ public class Aplicacion {
          }
          catch(Exception e)
          {
-              Mensaje_Error m_error = new Mensaje_Error(username,"USUARIO_PRIVILEGIOS","Funcion_3",e.toString());
+              //Mensaje_Error m_error = new Mensaje_Error(username,"USUARIO_PRIVILEGIOS","Funcion_3",e.toString());
 
-            System.out.println(m_error.toString());  
+            //System.out.println(m_error.toString());  
          }
         
     }
@@ -235,9 +249,9 @@ public class Aplicacion {
 
             System.out.println(m_e.toString());
 
-            Mensaje_Fin m_f = new Mensaje_Fin(username,"JEFE_PROYECTO","Funcion_4");
+           // Mensaje_Fin m_f = new Mensaje_Fin(username,"JEFE_PROYECTO","Funcion_4");
 
-            System.out.println(m_f.toString());
+            //System.out.println(m_f.toString());
 
             Mensaje_Correcto m_c = new Mensaje_Correcto(username,"JEFE_PROYECTO","Funcion_4");
 
@@ -246,9 +260,9 @@ public class Aplicacion {
          }
          catch(Exception e)
          {
-              Mensaje_Error m_error = new Mensaje_Error(username,"JEFE_PROYECTO","Funcion_4",e.toString());
+              //Mensaje_Error m_error = new Mensaje_Error(username,"JEFE_PROYECTO","Funcion_4",e.toString());
 
-            System.out.println(m_error.toString());  
+            //System.out.println(m_error.toString());  
          }
 
         }

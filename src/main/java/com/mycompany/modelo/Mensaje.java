@@ -32,9 +32,19 @@ public class Mensaje {
 
     private String tipo_retorno;
     
+    private String tipo_mensaje;
+    
     private String mensaje; // mensaje xD
     
-
+    //Atributos para el mensaje de error
+    private String texto_error;
+    private String linea_error;
+    
+    //Atributos para el mensaje de fin
+    private String duracion;
+    
+    //Atributos para el mensaje de warning
+    private String texto_warning;
 
 
     //Contructor de la clase.
@@ -47,14 +57,45 @@ public class Mensaje {
         this.id_funcion = this.nombre_funcion + "_" + System.currentTimeMillis(); 
         this.autor_funcion = this.nombre_funcion + "_NULL"; //Estas funciones no tienen argumentos.
         this.tipo_retorno = "String";
-        this.mensaje= "Ejecución de la funcion " + this.id_funcion + " a la hora "+this.hora + " por el usuario " + this.usuario + " de tipo "+this.tipo_usuario+ " nombre de la funcion " + this.nombre_funcion+ " autor de la funcion: "+this.autor_funcion+" y de tipo de retorno: "+this.tipo_retorno;
+        this.mensaje= "Ejecución de la funcion " + this.id_funcion + " a la hora "+this.hora + " por el usuario " + this.usuario + " de tipo "+this.tipo_usuario + " nombre de la funcion " + this.nombre_funcion+ " autor de la funcion: "+this.autor_funcion+" y de tipo de retorno: "+this.tipo_retorno;
+        
     }
     
+    public void setMensajeInicio() {
+        this.tipo_mensaje= "Inicio";
+        this.mensaje = "Inicio de ejecucion de la funcion " + this.nombre_funcion + " a la hora "+ this.hora + " por el usuario " + this.usuario + 
+                           " de tipo "+ this.tipo_usuario + ".";     
+    }
+    
+    public void setMensajeFin(String duracion) {
+        this.duracion = duracion;
+        this.tipo_mensaje= "Fin";
+        this.mensaje = "Fin de ejecucion de la funcion " + this.nombre_funcion + " a la hora "+ this.hora + " por el usuario " + this.usuario + 
+                           " de tipo "+ this.tipo_usuario + " de duracion total de la funcion " + this.duracion + " ms.";    
+        
+    
+    }
+    
+    public void setMensajeError(String linea_error, String texto_error) {
+        this.tipo_mensaje= "Error";
+        this.texto_error = texto_error;
+        this.linea_error = linea_error;
+        this.mensaje = "Error en la ejecucion de la funcion " + this.nombre_funcion + " a la hora "+ this.hora + " por el usuario " + this.usuario + 
+                           " de tipo "+ this.tipo_usuario + " en la linea " + this.linea_error + " con el error :\n" + this.texto_error + ".";
+
+    }
+    
+    public void setMensajeWarning(String texto_warning) {
+        this.tipo_mensaje= "Warning";
+        this.texto_warning = texto_warning;
+        this.mensaje = "Aviso durante la ejecucion de la funcion " + this.nombre_funcion + " a la hora "+ this.hora + " por el usuario " + this.usuario + 
+                           " de tipo "+ this.tipo_usuario + " :\n" + this.texto_warning + ".";  
+    }
+    
+    //Constructor vacío que necesita el mapeador de json jackson.
     public Mensaje() {
         
     }
-
-    //Get y  sets ...
 
     public String getUsuario() {
         return usuario;
@@ -114,13 +155,59 @@ public class Mensaje {
     public String getMensaje(){
         return mensaje;
     }
-    public void setMensaje(){
+    public void setMensaje(String mensaje){
         this.mensaje = mensaje;
     }
+
+    public String getTipo_mensaje() {
+        return tipo_mensaje;
+    }
+
+    public void setTipo_mensaje(String tipo_mensaje) {
+        this.tipo_mensaje = tipo_mensaje;
+    }
+
+    public String getTexto_error() {
+        return texto_error;
+    }
+
+    public void setTexto_error(String texto_error) {
+        this.texto_error = texto_error;
+    }
+
+    public String getLinea_error() {
+        return linea_error;
+    }
+
+    public void setLinea_error(String linea_error) {
+        this.linea_error = linea_error;
+    }
+
+    public String getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(String duracion) {
+        this.duracion = duracion;
+    }
+
+    public String getTexto_warning() {
+        return texto_warning;
+    }
+
+    public void setTexto_warning(String texto_warning) {
+        this.texto_warning = texto_warning;
+    }
+    
+    
+    
+    
 
     @Override
     public String toString() {
         //return " -- [ " + this.hora.toString() + " ] - USER: '" + this.usuario + "' => " + this.tipo_usuario + " - ID: " + this.id_funcion + " - AUTOR: " + this.autor_funcion + " - Retorno: " + this.tipo_retorno;
         return "Este toString ahora mismo no funciona, con nulos da problemas, arreglar";
     }
+    
+    
 }

@@ -18,26 +18,26 @@ public class Mensaje_Fin extends Mensaje{
       
     //Atributos extra.
     
-    private String texto_fin;
+    private int duracion;
 
-    public Mensaje_Fin(String usuario, String tipo_usario, String nombre_funcion) {
+    public Mensaje_Fin(String usuario, String tipo_usario, String nombre_funcion, int duracion) {
         super(usuario, tipo_usario,nombre_funcion);
-        this.texto_fin = "^^ Fin de la funcion ^^";
+        super.setTipo_mensaje("Fin");
+        this.duracion = duracion;
+        super.setMensaje("Fin de ejecucion de la funcion " + super.getNombre_funcion() + " a la hora "+ super.getHora() + " por el usuario " + super.getUsuario() + 
+                           " de tipo "+ super.getTipo_usuario() + " de duracion total de la funcion " + this.duracion + " ms.");
     }
 
-    public String getTexto_fin() {
-        return texto_fin;
-    }
 
-    public void setTexto_fin(String texto_fin) {
-        this.texto_fin = texto_fin;
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
     }
-    
     
      @Override
     public String toString() {
-        return  " - | " + this.texto_fin + super.toString() ;
+        return super.toString();
     }
+        
 
     
 }

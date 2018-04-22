@@ -20,7 +20,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.mycompany.modelo.*;
-import com.mycompany.mongo.MongoDBSingleton;
+//import com.mycompany.mongo.MongoDBSingleton;
 import com.sun.jersey.server.impl.container.servlet.Include;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -69,8 +69,8 @@ public class conexion_serve {
             El servidor insertara en mongo el mensaje tras volverlo a convertir en json.
                 
              */
-             MongoDBSingleton mongo = MongoDBSingleton.getInstance();
-             mongo.getTestdb();
+             //MongoDBSingleton mongo = MongoDBSingleton.getInstance();
+             //mongo.getTestdb();
              
             
             ObjectMapper mapper = new ObjectMapper();
@@ -80,7 +80,7 @@ public class conexion_serve {
                 jsonString = mapper.writeValueAsString(alguien);
                 
                 doc = Document.parse(jsonString);
-                mongo.InsertMessage(doc);
+                //mongo.InsertMessage(doc);
 
             } catch (IOException ex) {
                 Logger.getLogger(conexion_serve.class.getName()).log(Level.SEVERE, null, ex);

@@ -16,26 +16,19 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
 public class Mensaje_Inicio extends Mensaje{
     
   
-    //Atributos extra.
     
-    private String texto_inicio;
-
     public Mensaje_Inicio(String usuario, String tipo_usario, String nombre_funcion) {
-        super(usuario, tipo_usario,nombre_funcion);    
-        this.texto_inicio = "** Inicio de la funcion... **";
+        super(usuario, tipo_usario,nombre_funcion);  
+        super.setTipo_mensaje("Inicio");
+        super.setMensaje("Inicio de ejecucion de la funcion " + super.getNombre_funcion() + " a la hora "+ super.getHora() + " por el usuario " + super.getUsuario() + 
+                           " de tipo "+ super.getTipo_usuario() + " nombre de la funcion " + super.getNombre_funcion() + " autor de la funcion: "+ super.getAutor_funcion() +  ".");
+        
     }
 
-    public String getTexto_inicio() {
-        return texto_inicio;
-    }
-
-    public void setTexto_inicio(String texto_inicio) {
-        this.texto_inicio = texto_inicio;
-    }
-
+   
     @Override
     public String toString() {
-        return " - | " + this.texto_inicio + super.toString() ;
+        return super.toString();
     }
 
 }
