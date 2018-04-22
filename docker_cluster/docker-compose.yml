@@ -1,0 +1,80 @@
+version: '3'
+
+services:
+  
+  nodoShard1:
+    container_name: nodoShard1
+    image: mongo
+    command: mongod --shardsvr --replSet nodoShard --dbpath /data/db --port 27017
+    ports:
+      - 30001:27071
+    volumes:
+      - $HOME/mabbdd_pl3-4/mongoclusterdata/nodoShard1:/data/db
+    networks:
+      - mongocluster
+  
+  nodoShard2:
+    container_name: nodoShard2
+    image: mongo
+    command: mongod --shardsvr --replSet nodoShard --dbpath /data/db --port 27017
+    ports:
+      - 30002:27071
+    volumes:
+      - $HOME/mabbdd_pl3-4/mongoclusterdata/nodoShard2:/data/db
+    networks:
+      - mongocluster
+    
+  nodoShard3:
+    container_name: nodoShard3
+    image: mongo
+    command: mongod --shardsvr --replSet nodoShard --dbpath /data/db --port 27017
+    ports:
+      - 30003:27071
+    volumes:
+      - $HOME/mabbdd_pl3-4/mongoclusterdata/nodoShard3:/data/db
+    networks:
+      - mongocluster
+
+  nodoConfig1:
+    container_name: nodoConfig1
+    image: mongo
+    command: mongod --configsvr --replSet nodoConfig --dbpath /data/db --port 27017
+    volumes:
+      - $HOME/mabbdd_pl3-4/mongoclusterdata/nodoConfig1:/data/db
+    networks:
+      - mongocluster
+
+  nodoConfig2:
+    container_name: nodoConfig2
+    image: mongo
+    command: mongod --configsvr --replSet nodoConfig --dbpath /data/db --port 27017
+    volumes:
+      - $HOME/mabbdd_pl3-4/mongoclusterdata/nodoConfig2:/data/db
+    networks:
+      - mongocluster
+
+  nodoConfig3:
+    container_name: nodoConfig3
+    image: mongo
+    command: mongod --configsvr --replSet nodoConfig --dbpath /data/db --port 27017
+    volumes:
+      - $HOME/mabbdd_pl3-4/mongoclusterdata/nodoConfig3:/data/db
+    networks:
+      - mongocluster
+
+  nodoEnrutador:
+    container_name: nodoEnrutador
+    image: mongo
+    command: mongos --configdb nodoConfig/nodoConfig1:27017,nodoConfig2:27017,nodoConfig3:27017 --port 27017
+    ports:
+      - 27070:27017
+    depends_on:
+      - nodoConfig1
+      - nodoConfig2
+      - nodoConfig3
+    networks:
+      - mongocluster
+
+networks:
+  mongocluster:
+    driver: bridge
