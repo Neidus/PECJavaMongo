@@ -5,6 +5,8 @@
  */
 package com.mycompany.modelo;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
@@ -22,15 +24,13 @@ public class Mensaje {
 
     private String tipo_usuario;
 
-    private Date hora;
+    private String fecha;
 
     private String nombre_funcion;
 
     private String id_funcion;  // Formato especial --> "NombreFuncion_Timestamp"
 
     private String autor_funcion;  // Se establecen los tipos de argumentos de la función.
-
-    private String tipo_retorno;
     
     private String tipo_mensaje;
     
@@ -52,25 +52,26 @@ public class Mensaje {
     public Mensaje(String usuario, String tipo_usuario,String nombre_funcion) {
         this.usuario = usuario;
         this.tipo_usuario = tipo_usuario;
-        this.hora = new Date(System.currentTimeMillis());  //Se inicializa para coger la hora del sistema.
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+	Date date = new Date();
+        this.fecha = dateFormat.format(date);  //Se inicializa para coger la hora del sistema.
         this.nombre_funcion = nombre_funcion;
-        this.id_funcion = this.nombre_funcion + "_" + System.currentTimeMillis(); 
-        this.autor_funcion = this.nombre_funcion + "_NULL"; //Estas funciones no tienen argumentos.
-        this.tipo_retorno = "String";
-        this.mensaje= "Ejecución de la funcion " + this.id_funcion + " a la hora "+this.hora + " por el usuario " + this.usuario + " de tipo "+this.tipo_usuario + " nombre de la funcion " + this.nombre_funcion+ " autor de la funcion: "+this.autor_funcion+" y de tipo de retorno: "+this.tipo_retorno;
+        dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+        this.id_funcion = this.nombre_funcion + "_" + dateFormat.format(date); 
+        this.mensaje= "Ejecución de la funcion " + this.id_funcion + " a la hora "+this.fecha + " por el usuario " + this.usuario + " de tipo "+this.tipo_usuario + " nombre de la funcion " + this.nombre_funcion+ " autor de la funcion: "+this.autor_funcion+".";
         
     }
     
     public void setMensajeInicio() {
         this.tipo_mensaje= "Inicio";
-        this.mensaje = "Inicio de ejecucion de la funcion " + this.nombre_funcion + " a la hora "+ this.hora + " por el usuario " + this.usuario + 
+        this.mensaje = "Inicio de ejecucion de la funcion " + this.nombre_funcion + " a la hora "+ this.fecha + " por el usuario " + this.usuario + 
                            " de tipo "+ this.tipo_usuario + ".";     
     }
     
     public void setMensajeFin(String duracion) {
         this.duracion = duracion;
         this.tipo_mensaje= "Fin";
-        this.mensaje = "Fin de ejecucion de la funcion " + this.nombre_funcion + " a la hora "+ this.hora + " por el usuario " + this.usuario + 
+        this.mensaje = "Fin de ejecucion de la funcion " + this.nombre_funcion + " a la hora "+ this.fecha + " por el usuario " + this.usuario + 
                            " de tipo "+ this.tipo_usuario + " de duracion total de la funcion " + this.duracion + " ms.";    
         
     
@@ -80,7 +81,7 @@ public class Mensaje {
         this.tipo_mensaje= "Error";
         this.texto_error = texto_error;
         this.linea_error = linea_error;
-        this.mensaje = "Error en la ejecucion de la funcion " + this.nombre_funcion + " a la hora "+ this.hora + " por el usuario " + this.usuario + 
+        this.mensaje = "Error en la ejecucion de la funcion " + this.nombre_funcion + " a la hora "+ this.fecha + " por el usuario " + this.usuario + 
                            " de tipo "+ this.tipo_usuario + " en la linea " + this.linea_error + " con el error :\n" + this.texto_error + ".";
 
     }
@@ -88,7 +89,7 @@ public class Mensaje {
     public void setMensajeWarning(String texto_warning) {
         this.tipo_mensaje= "Warning";
         this.texto_warning = texto_warning;
-        this.mensaje = "Aviso durante la ejecucion de la funcion " + this.nombre_funcion + " a la hora "+ this.hora + " por el usuario " + this.usuario + 
+        this.mensaje = "Aviso durante la ejecucion de la funcion " + this.nombre_funcion + " a la hora "+ this.fecha + " por el usuario " + this.usuario + 
                            " de tipo "+ this.tipo_usuario + " :\n" + this.texto_warning + ".";  
     }
     
@@ -113,12 +114,12 @@ public class Mensaje {
         this.tipo_usuario = tipo_usuario;
     }
 
-    public Date getHora() {
-        return hora;
+    public String getFecha() {
+        return fecha;
     }
 
-    public void setHora(Date hora) {
-        this.hora= hora;
+    public void setFecha(String fecha) {
+        this.fecha= fecha;
     }
     
     public String getNombre_funcion() {
@@ -135,14 +136,6 @@ public class Mensaje {
 
     public void setId_funcion(String id_funcion) {
         this.id_funcion = id_funcion;
-    }
-
-    public String getTipo_retorno() {
-        return tipo_retorno;
-    }
-
-    public void setTipo_retorno(String tipo_retorno) {
-        this.tipo_retorno = tipo_retorno;
     }
 
     public String getAutor_funcion() {

@@ -23,19 +23,8 @@ public class ConexionCliente {
 
 	Client client = Client.create();
 	String getUrl = "http://localhost:8080/mavenproject1/rest/mensaje/data/get";
-	String postUrl = "http://localhost:8080/mavenproject1/rest/mensaje/data/trabajar";
+	String postUrl = "http://localhost:8080/mavenproject1/rest/mensaje/data/simularTrabajo";
         
-	public static void main(String[] args) {
-		
-        //Se lanza una petici�n GET b�sica
-		//cliente.getRequest();
-		//Se lanza una petici�n POST con par�metros
-		//cliente.postRequest();
-		
-        //Se lanza una petici�n GET lista de Estudiantes
-		//cliente.getRequest3();
-	}
-	
 	
 	/**
 	 * M�todo para solicitar un servicio REST v�a GET
@@ -68,17 +57,6 @@ public class ConexionCliente {
 	public void postRequest(Mensaje m){
             
             try {
-                /*
-                Esta funcion seria el nuevo sendMessage()
-                Esta funcion envia al servidor el mensaje (datos) como JSON y ya el servidor se encarga
-                de insertarlos, el cliente se despreocupa completamente.
-                
-                El botón de la web debería accionar esta funcion de algun modo.
-                Una posibilidad es que esta clase sea un servlet y que el boton
-                ejecute el servlet que ejecuta las funciones que simulan el trabajo
-                que a su vez llaman a esta funcion que envia el mensaje al servidor.
-                
-                */
                 //Se perpara la petici�n
                 WebResource webResource = client.resource(postUrl);
                 

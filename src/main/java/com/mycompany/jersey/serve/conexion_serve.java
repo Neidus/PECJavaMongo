@@ -39,7 +39,6 @@ public class conexion_serve {
       mensaje01.setNombre_funcion("Funcion");
       mensaje01.setAutor_funcion("DON SERGIO");
       //mensaje01.setHora();
-      mensaje01.setTipo_retorno("Get");
       
       
       return mensaje01;
@@ -59,16 +58,17 @@ public class conexion_serve {
 	
 	
 	@POST
-	@Path("/trabajar")
+	@Path("/simularTrabajo")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response postMensaje(Mensaje alguien){
             
              /*
                     Aqui el servidor recibira un mensaje desde el cliente.
-                    
-            El servidor insertara en mongo el mensaje tras volverlo a convertir en json.
-                
+                    El servidor insertara en mongo el mensaje tras volverlo a convertir en json.
              */
+             
+             //Conexion a mongo local deshabilitado por defecto, eliminar comentarios para probar
+             
              //MongoDBSingleton mongo = MongoDBSingleton.getInstance();
              //mongo.getTestdb();
              
