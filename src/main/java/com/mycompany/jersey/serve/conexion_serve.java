@@ -20,6 +20,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.mycompany.modelo.*;
+import com.mycompany.mongo.MongoDBSingleton;
 //import com.mycompany.mongo.MongoDBSingleton;
 import com.sun.jersey.server.impl.container.servlet.Include;
 import java.io.IOException;
@@ -69,7 +70,7 @@ public class conexion_serve {
              
              //Conexion a mongo local deshabilitado por defecto, eliminar comentarios para probar
              
-             //MongoDBSingleton mongo = MongoDBSingleton.getInstance();
+            // MongoDBSingleton mongo = MongoDBSingleton.getInstance();
              //mongo.getTestdb();
              
             

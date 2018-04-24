@@ -9,6 +9,7 @@ import java.net.UnknownHostException;
 
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
 import com.mongodb.MongoCredential;
 import com.mongodb.ServerAddress;
 import com.mongodb.client.MongoCollection;
@@ -55,6 +56,10 @@ public class MongoDBSingleton {
      
   if(mongoClient == null){
       //mongoClient = new MongoClient(dbHost , dbPort);
+      
+      //ESTAS 2 LINEAS ES PARA LA CONEXION HIPOTETICA CON LOS MONGO DE DOCKER.
+      //MongoClientURI uri  = new MongoClientURI("mongodb://"+dbHost); 
+      //mongoclient = new MongoClient(uri);
       
       mongoClient = new MongoClient(new ServerAddress(dbHost, dbPort));
 
