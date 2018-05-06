@@ -70,7 +70,7 @@ public class conexion_serve {
              
              //Conexion a mongo local deshabilitado por defecto, eliminar comentarios para probar
              
-            // MongoDBSingleton mongo = MongoDBSingleton.getInstance();
+             MongoDBSingleton mongo = MongoDBSingleton.getInstance();
              //mongo.getTestdb();
              
             
@@ -81,7 +81,7 @@ public class conexion_serve {
                 jsonString = mapper.writeValueAsString(alguien);
                 
                 doc = Document.parse(jsonString);
-                //mongo.InsertMessage(doc);
+                mongo.InsertMessage(doc);
 
             } catch (IOException ex) {
                 Logger.getLogger(conexion_serve.class.getName()).log(Level.SEVERE, null, ex);

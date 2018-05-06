@@ -43,7 +43,7 @@ public class MongoDBSingleton {
  public static MongoDBSingleton getInstance(){
   if(mDbSingleton == null){
     mDbSingleton = new MongoDBSingleton();
-    
+    mDbSingleton.getTestdb();
   }
   return mDbSingleton;
  }
@@ -55,16 +55,8 @@ public class MongoDBSingleton {
              
      
   if(mongoClient == null){
-      //mongoClient = new MongoClient(dbHost , dbPort);
-      
-      //ESTAS 2 LINEAS ES PARA LA CONEXION HIPOTETICA CON LOS MONGO DE DOCKER.
-      //MongoClientURI uri  = new MongoClientURI("mongodb://"+dbHost); 
-      //mongoclient = new MongoClient(uri);
-      
+     
       mongoClient = new MongoClient(new ServerAddress(dbHost, dbPort));
-
-                                        //Arrays.asList(credential) //opcional si tenemos user y pass
-   
 
   }
   if(db == null) {
