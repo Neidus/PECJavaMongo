@@ -32,7 +32,7 @@ public class MongoDBSingleton {
  
  
  private static final String dbHost = "localhost";
- private static final int dbPort = 27017;
+ private static final int dbPort = 27071;
  private static final String dbName = "mensajesDB";
  private static final String dbUser = "pecl3";
  private static final char[] dbPassword = {'p', 'e', 'c', 'l', '3'};     
