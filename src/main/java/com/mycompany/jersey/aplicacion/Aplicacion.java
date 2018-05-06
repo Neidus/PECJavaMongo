@@ -69,7 +69,7 @@ public class Aplicacion {
         try {
             int errorProvocado= 1/0;
         } catch (Exception e) {
-            m = new Mensaje(System.getProperty("user.name"),"Usuario Final", ste[0].getMethodName());
+            m = new Mensaje(System.getProperty("user.name"),"Usuario Final", ste[1].getMethodName());
             m.setMensajeError(Integer.toString(e.getStackTrace()[1].getLineNumber()), e.toString());
             cliente.postRequest(m); 
         }
@@ -105,7 +105,7 @@ public class Aplicacion {
          }
          catch(Exception e)
          {
-            m = new Mensaje(System.getProperty("user.name"),"Comercial", ste[0].getMethodName());
+            m = new Mensaje(System.getProperty("user.name"),"Comercial", ste[1].getMethodName());
             m.setMensajeError(Integer.toString(e.getStackTrace()[1].getLineNumber()), e.toString());
             cliente.postRequest(m); 
          }
@@ -168,7 +168,7 @@ public class Aplicacion {
             
             
         } catch (InterruptedException ex) {
-            m = new Mensaje(System.getProperty("user.name"),"Comercial", ste[0].getMethodName());
+            m = new Mensaje(System.getProperty("user.name"),"Comercial", ste[1].getMethodName());
             m.setMensajeError(Integer.toString(ex.getStackTrace()[1].getLineNumber()), ex.toString());
             cliente.postRequest(m); 
         }

@@ -49,10 +49,7 @@ public class MongoDBSingleton {
  }
  
  public MongoDatabase getTestdb(){
-     
-
-  //MongoCredential credential = MongoCredential.createCredential(dbUser, dbName, dbPassword);
-             
+        
      
   if(mongoClient == null){
      
@@ -63,24 +60,14 @@ public class MongoDBSingleton {
       db = mongoClient.getDatabase(dbName);
   }
    
-  
   return db;
  }
  
  public void InsertMessage(Document doc){
      MongoCollection<Document> collection = db.getCollection("mensajes");
    
-    
-     
-     //String jsonString = mapper.writeValueAsString(m);
-     //System.out.println("Json: " + jsonString);
-     //doc = Document.parse(jsonString);
      collection.insertOne(doc);
      
-     
-
-
-
  }
 }
 
