@@ -62,17 +62,9 @@ public class conexion_serve {
 	@Path("/simularTrabajo")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response postMensaje(Mensaje alguien){
-            
-             /*
-                    Aqui el servidor recibira un mensaje desde el cliente.
-                    El servidor insertara en mongo el mensaje tras volverlo a convertir en json.
-             */
-             
-             //Conexion a mongo local deshabilitado por defecto, eliminar comentarios para probar
-             
+      
              MongoDBSingleton mongo = MongoDBSingleton.getInstance();
-             //mongo.getTestdb();
-             
+             mongo.getTestdb();
             
             ObjectMapper mapper = new ObjectMapper();
             String jsonString="";

@@ -43,7 +43,7 @@ public class MongoDBSingleton {
  public static MongoDBSingleton getInstance(){
   if(mDbSingleton == null){
     mDbSingleton = new MongoDBSingleton();
-    mDbSingleton.getTestdb();
+    //mDbSingleton.getTestdb();
   }
   return mDbSingleton;
  }
