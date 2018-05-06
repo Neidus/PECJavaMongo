@@ -54,7 +54,7 @@ public class Aplicacion {
         cliente.postRequest(m);
         
         m = new Mensaje(System.getProperty("user.name"),"Usuario Final", ste[1].getMethodName());
-        m.setMensajeFin("12");
+        m.setMensajeFin(12);
         cliente.postRequest(m);
         
         m = new Mensaje(System.getProperty("user.name"),"Usuario Final", ste[1].getMethodName());
@@ -98,7 +98,7 @@ public class Aplicacion {
             long end_time = System.currentTimeMillis();
             long difference = end_time-start_time;
             m = new Mensaje(System.getProperty("user.name"),"Comercial", ste[1].getMethodName());
-            m.setMensajeFin(Long.toString(difference));
+            m.setMensajeFin((int) difference);
             cliente.postRequest(m);
         
 
@@ -134,7 +134,7 @@ public class Aplicacion {
             long end_time = System.currentTimeMillis();
             long difference = end_time-start_time;
             m = new Mensaje(System.getProperty("user.name"),"Comercial", ste[1].getMethodName());
-            m.setMensajeFin(Long.toString(difference));
+            m.setMensajeFin((int) difference);
             cliente.postRequest(m);
     
          return posicionLiga;
@@ -163,7 +163,7 @@ public class Aplicacion {
             }
             
             m = new Mensaje(System.getProperty("user.name"),"Comercial", ste[1].getMethodName());
-            m.setMensajeFin(Long.toString(difference));
+            m.setMensajeFin((int) difference);
             cliente.postRequest(m);
             
             

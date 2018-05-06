@@ -40,12 +40,13 @@ public class Mensaje {
     private String texto_error;
     private String linea_error;
     
-    //Atributos para el mensaje de fin
-    private String duracion;
-    
     //Atributos para el mensaje de warning
     private String texto_warning;
 
+     @JsonSerialize(include=JsonSerialize.Inclusion.NON_DEFAULT)
+    //Atributos para el mensaje de fin
+    private int duracion=0;
+    
 
     //Contructor de la clase.
 
@@ -68,7 +69,7 @@ public class Mensaje {
                            " de tipo "+ this.tipo_usuario + ".";     
     }
     
-    public void setMensajeFin(String duracion) {
+    public void setMensajeFin(int duracion) {
         this.duracion = duracion;
         this.tipo_mensaje= "Fin";
         this.mensaje = "Fin de ejecucion de la funcion " + this.nombre_funcion + " a la hora "+ this.fecha + " por el usuario " + this.usuario + 
@@ -176,11 +177,11 @@ public class Mensaje {
         this.linea_error = linea_error;
     }
 
-    public String getDuracion() {
+    public int getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(String duracion) {
+    public void setDuracion(int duracion) {
         this.duracion = duracion;
     }
 
